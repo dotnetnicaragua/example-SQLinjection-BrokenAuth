@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Demo_OWASP_ASPNet_Movies.Models.MovieView>
+
+@{
+    ViewBag.Title = "My Movies List";
+}
+<a href="@Url.Action("Administration", "Home")" class="btn btn-sm btn-success" type="submit">Administration</a>
+<a href="@Url.Action("Logout", "Home")" class="btn btn-sm btn-danger" type="submit">Logout!</a>
+<br />
+<h2>@ViewBag.Title</h2>
+<br />
+
+@using (Html.BeginForm("Search", "Home", FormMethod.Post, new { @class = "form-signin" }))
+{
+    <div class="form-label-group">
+        <label for="username">Search by Title:</label>
+        @Html.TextBox("criteria", null, new { @class = "form-control ", @autocomplete = "off" })
+    </div>
+    <br />
+    <button class="btn btn-sm btn-primary" type="submit">Go!</button>
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdMovie)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReleaseYear)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdMovie)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseYear)
+            </td>
+            <td>
+                <a href="#">Download!</a>
+            </td>
+        </tr>
+    }
+
+</table>
