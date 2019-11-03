@@ -9,7 +9,8 @@ namespace Demo_OWASP_ASPNet_Movies.Controllers
 {
     public class HomeController : Controller
     {
-        string connectionString = "Server=localhost;Database=MoviesDB;User Id=sa; Password=masterKey;";
+        // Usar su propia cadena de conexión, con su usuario y contraseña
+        string connectionString = "Server=localhost;Database=MoviesDB;User Id=usuario; Password=clave;";
 
         Models.MoviesDBEntities db = new Models.MoviesDBEntities();
 
